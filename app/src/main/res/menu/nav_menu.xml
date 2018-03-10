@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_viewall"
+            android:icon="@drawable/ic_assignment"
+            android:title="查看全部书籍"/>
+        <item
+            android:id="@+id/nav_viewstyle"
+            android:icon="@drawable/ic_assignment"
+            android:title="按照分类查看"/>
+        <item
+            android:id="@+id/nav_record"
+            android:icon="@drawable/ic_folder_open_black_24dp"
+            android:title="查看已预约借阅"/>
+        <item
+            android:id="@+id/nav_borrow_record"
+            android:icon="@drawable/ic_folder_open_black_24dp"
+            android:title="查看已借阅书籍"/>
+        <item
+            android:id="@+id/nav_return_record"
+            android:icon="@drawable/ic_folder_open_black_24dp"
+            android:title="查看已归还书籍"/>
+        <item
+            android:id="@+id/nav_seach"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/icon_image"
+            android:icon="@drawable/ic_search_black_24dp"
+            android:title="搜索" />
+    </group>
+
+</menu>
