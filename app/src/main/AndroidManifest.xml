@@ -10,7 +10,7 @@
     <application
         android:name=".READERID"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_library"
         android:label="图书馆"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -30,7 +30,7 @@
             android:name=".BookDialog"
             android:label="借阅"
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
-        <activity android:name=".SearchActivity" />
+
     </application>
 
 </manifest>
