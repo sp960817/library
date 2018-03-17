@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_library"
         android:label="图书馆"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_library"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
