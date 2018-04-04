@@ -1,7 +1,9 @@
 package com.example.administrator.library;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -25,15 +28,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button register;
     private Button forgive_pwd;
     private READERID readerid;
+    private CheckBox rememberpass;
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
         StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         android.support.v7.widget.Toolbar toolbar =(android.support.v7.widget.Toolbar) findViewById(R.id.toobar);
         setSupportActionBar(toolbar);
         initView();
+        boolean isRemember =pref.getBoolean("remember_pass",false);
+        if(isRemember){
+            String pusername =pref.getString("username","");
+            String ppassword = pref.getString("password","");
+            username.setText(pusername);
+            password.setText(ppassword);
+            rememberpass.setChecked(true);
+        }
     }
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.toolbar,menu);
@@ -109,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         register.setOnClickListener(this);
         forgive_pwd =(Button)findViewById(R.id.forgive_pwd);
         forgive_pwd.setOnClickListener(this);
-
+        rememberpass =(CheckBox)findViewById(R.id.remember_pass);
     }
     @Override
     public void onClick(View v) {
@@ -136,6 +151,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         Log.d("sss", userpw);
                                         Log.d("sss", pw);
                                         if(userpw.equals(pw)){
+                                            editor=pref.edit();
+                                            if(rememberpass.isChecked()){
+                                                editor.putBoolean("remember_pass",true);
+                                                editor.putString("username",user);
+                                                editor.putString("password",userpw);
+                                            }else {
+                                                editor.clear();
+                                            }
+                                            editor.apply();
                                             Intent intent =new Intent(MainActivity.this,LibraryActivity.class);
                                             startActivity(intent);
                                             readerid=(READERID)getApplication();
