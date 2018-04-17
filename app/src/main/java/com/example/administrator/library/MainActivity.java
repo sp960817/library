@@ -184,7 +184,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
                 case R.id.forgive_pwd:
 // 忘记密码按钮
-                    Toast.makeText(MainActivity.this, "忘记密码", Toast.LENGTH_SHORT).show();
+                    Intent intent1 =new Intent(MainActivity.this,ForgetActivity.class);
+                    startActivity(intent1);
                     break;
                 default:
                     break;
