@@ -37,7 +37,16 @@
             android:theme="@style/Theme.AppCompat.Light.Dialog.Alert" />
         <activity
             android:name=".ForgetActivity"
-            android:label="@string/title_activity_forget"></activity>
+            android:label="@string/title_activity_forget" />
+
+        <receiver
+            android:name=".MyReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="sp.CLIPBOARPW"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
