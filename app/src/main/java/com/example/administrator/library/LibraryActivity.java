@@ -97,6 +97,9 @@ public class LibraryActivity extends AppCompatActivity {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
                         break;
+                    case R.id.nav_exit:
+                        finish();
+                        break;
                     default:
                         break;
                 }

@@ -2,15 +2,9 @@ package com.example.administrator.library;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.support.v4.app.NotificationCompat;
@@ -22,16 +16,11 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import Y.SqlHelper;
-
-/**
- * A login screen that offers login via email/password.
- */
 public class ForgetActivity extends AppCompatActivity implements OnClickListener {
     EditText forget_id, forget_name;
     Button forget_get, forget_return;
@@ -45,7 +34,6 @@ public class ForgetActivity extends AppCompatActivity implements OnClickListener
         setContentView(R.layout.activity_forget);
         intview();
     }
-
     private void intview() {
         forget_id = (EditText) findViewById(R.id.forget_id);
         forget_name = (EditText) findViewById(R.id.forget_name);
@@ -54,10 +42,6 @@ public class ForgetActivity extends AppCompatActivity implements OnClickListener
         forget_get.setOnClickListener(this);
         forget_return.setOnClickListener(this);
         mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-    }
-    public void getpass(String fpassowrd){
-
     }
     @Override
     public void onClick(View v) {
@@ -123,6 +107,7 @@ public class ForgetActivity extends AppCompatActivity implements OnClickListener
     }
     public void sendNotification_24() {
         Intent intent = new Intent("sp.CLIPBOARPW");
+        intent.putExtra("password",""+Fpassowrd+"");
         PendingIntent pi = PendingIntent.getBroadcast(this,1,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         Notification notification = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.mipmap.ic_library)             //一定要设置
@@ -130,8 +115,9 @@ public class ForgetActivity extends AppCompatActivity implements OnClickListener
                 .setContentTitle("您的密码，单击复制")
                 .setContentText(""+Fpassowrd+"")
                 .setAutoCancel(true)
+                .setPriority(Notification.PRIORITY_HIGH)
                 .setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400})
-                .setLights(Color.RED, 1000, 1000)
+                //.setLights(Color.RED, 1000, 1000)
                 .setContentIntent(pi)
                 .build();
         mNotificationManager.notify(1, notification);
