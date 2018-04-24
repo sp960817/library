@@ -40,7 +40,7 @@ public class BookDialog extends AppCompatActivity implements View.OnClickListene
     String id,idid;
     String TAG = "sss";
     Button borrow;
-    Button b_retrun;
+    Button b_retrun,see_recommend;
     private READERID readerid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,8 @@ public class BookDialog extends AppCompatActivity implements View.OnClickListene
         borrow.setOnClickListener(this);
         b_retrun = (Button)findViewById(R.id.b_return);
         b_retrun.setOnClickListener(this);
+        see_recommend =(Button)findViewById(R.id.viewrecommmend);
+        see_recommend.setOnClickListener(this);
     }
     private void borrow_if(){
         connection =SqlHelper.openConnection();
@@ -144,6 +146,12 @@ public class BookDialog extends AppCompatActivity implements View.OnClickListene
             case R.id.b_return:
                 finish();
                 break;
+            case R.id.viewrecommmend:
+            Intent intent = new Intent(this,ViewRecommend.class);
+            intent.putExtra("extra_id",id);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            break;
             default:
                     break;
         }

@@ -44,9 +44,14 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="sp.CLIPBOARPW"/>
+                <action android:name="sp.CLIPBOARPW" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".ViewRecommend"
+            android:label="推荐语"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"
+            ></activity>
     </application>
 
 </manifest>

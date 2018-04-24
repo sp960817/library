@@ -72,6 +72,11 @@ public class LibraryActivity extends AppCompatActivity {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
                     break;
+                    case R.id.nav_recommend:
+                        replaceFragement(new ViewRecommendFragment());
+                        item.setChecked(true);
+                        mDrawerLayout.closeDrawers();
+                        break;
                     case R.id.nav_viewall:
                         replaceFragement(new ViewAllFragement());
                         item.setChecked(true);
