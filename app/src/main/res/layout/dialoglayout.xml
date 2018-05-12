@@ -15,7 +15,7 @@
             android:textSize="25dp"
             android:gravity="center"
             android:layout_gravity="left"
-            android:maxLines="2"
+            android:maxLines="1"
             />
         <TextView
             android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:textSize="25dp"
             android:gravity="center"
             android:layout_gravity="left"
-            android:maxLines="2"
+            android:maxLines="1"
             />
         <TextView
             android:layout_width="match_parent"
@@ -33,7 +33,7 @@
             android:textSize="25dp"
             android:gravity="center"
             android:layout_gravity="left"
-            android:maxLines="2"
+            android:maxLines="1"
             />
         <TextView
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
             android:textSize="25dp"
             android:gravity="center"
             android:layout_gravity="left"
-            android:maxLines="2"
+            android:maxLines="1"
             />
         <TextView
             android:layout_width="match_parent"
@@ -51,7 +51,7 @@
             android:textSize="25dp"
             android:gravity="center"
             android:layout_gravity="left"
-            android:maxLines="2"
+            android:maxLines="1"
             />
 
     </LinearLayout>
