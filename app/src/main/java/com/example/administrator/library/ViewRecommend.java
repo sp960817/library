@@ -15,12 +15,12 @@ import java.sql.Statement;
 import Y.SqlHelper;
 
 public class ViewRecommend extends AppCompatActivity {
-    TextView textView;
+    TextView textView,textlv;
     Button button_return;
     Connection connection;
     Statement statement;
     ResultSet resultSet;
-    String id,text_recommend;
+    String id,text_recommend,text_recommendlv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +31,13 @@ public class ViewRecommend extends AppCompatActivity {
         connection = SqlHelper.openConnection();
         try{
             statement =connection.createStatement();
-            resultSet = statement.executeQuery("SELECT bookrecommend FROM system_book WHERE bookid ='"+id+"'");
+            resultSet = statement.executeQuery("SELECT bookrecommend,booklv FROM system_book WHERE bookid ='"+id+"'");
             if(resultSet.next()){
                 text_recommend = resultSet.getString("bookrecommend");
+                text_recommendlv =resultSet.getString("booklv");
             }
-            textView.setText(text_recommend);
+            textlv.setText("推荐等级:"+text_recommendlv);
+            textView.setText("推荐语:"+text_recommend);
         }catch (SQLException e){}
         button_return.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +48,7 @@ public class ViewRecommend extends AppCompatActivity {
     }
     private void intview(){
         textView=(TextView)findViewById(R.id.recommend_see);
+        textlv=(TextView)findViewById(R.id.recommend_seelv);
         button_return =(Button)findViewById(R.id.r_return);
 
     }

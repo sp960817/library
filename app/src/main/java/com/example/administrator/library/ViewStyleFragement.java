@@ -37,12 +37,12 @@ public class ViewStyleFragement extends Fragment {
         View view = inflater.inflate(R.layout.viewstyle_fragement,container,false);
         listView = (ListView) view.findViewById(R.id.style_list);
         connection = SqlHelper.openConnection();
+        list.clear();
         try{
             statement =connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM book_style");
             while (resultSet.next()){
                 list.add(new String(resultSet.getString("bookstyle")));
-                Log.d("sss", "111 ");
             }
             resultSet.close();
             connection.close();
@@ -60,4 +60,5 @@ public class ViewStyleFragement extends Fragment {
         });
         return view;
     }
+
 }
