@@ -105,6 +105,8 @@ public class LibraryActivity extends AppCompatActivity {
                     case R.id.nav_exit:
                         finish();
                         break;
+                    case R.id.nav_about:
+                        Toast.makeText(LibraryActivity.this,"作者：孙鹏\n邮箱：402151646@qq.com",Toast.LENGTH_LONG).show();
                     default:
                         break;
                 }

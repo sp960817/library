@@ -15,7 +15,7 @@ public class SqlHelper {
             final String DRIVER_NAME = "com.mysql.jdbc.Driver";
             Class.forName(DRIVER_NAME);
             Log.d("sss", "加载成功 ");
-            conn = DriverManager.getConnection("jdbc:mysql:"+"//192.168.42.21:3306/tushuguan?useUnicode=true&characterEncoding=utf-8&useSSL=false","root","q9t3e5q2");
+            conn = DriverManager.getConnection("jdbc:mysql:"+"//192.168.42.166:3306/tushuguan?useUnicode=true&characterEncoding=utf-8&useSSL=false","root","q9t3e5q2");
             Log.d("sss", "连接成功 ");
         } catch (ClassNotFoundException e) {
             conn = null;

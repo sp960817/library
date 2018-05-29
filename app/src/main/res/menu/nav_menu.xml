@@ -32,6 +32,10 @@
             android:icon="@drawable/ic_search_black_24dp"
             android:title="搜索" />
         <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_folder_open_black_24dp"
+            android:title="关于"/>
+        <item
             android:id="@+id/nav_exit"
             android:layout_alignParentStart="true"
             android:layout_alignTop="@+id/icon_image"
